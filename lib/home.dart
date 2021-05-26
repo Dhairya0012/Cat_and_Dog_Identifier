@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
@@ -12,9 +10,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final picker = ImagePicker();
-  File _image;
+  late File _image;
   bool _loading = false;
-  List _output;
+  late List _output;
 
   pickImage() async {
     var image = await picker.getImage(source: ImageSource.camera);
@@ -63,7 +61,7 @@ class _HomeState extends State<Home> {
 
     setState(() {
       _loading = false;
-      _output = output;
+      _output = output!;
     });
   }
 
